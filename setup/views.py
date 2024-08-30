@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from setup.models import Company
 
-# Create your views here.
+def homepage(request):
+    company = Company.objects.get(company_name="Fashion 360")
+    context = {
+        "company": company
+    }
+    return render(request, 'setup/home.html', context)
