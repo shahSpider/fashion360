@@ -27,6 +27,30 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Local development server
+    "http://127.0.0.1:3000",  # Alternative IP address for local development
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+
+# # Optional: Allow specific headers if required
+# CORS_ALLOW_HEADERS = [
+#     'content-type',
+#     'authorization',
+#     'x-requested-with',
+# ]
+
+# # Optional: Allow all HTTP methods if needed
+# CORS_ALLOW_METHODS = [
+#     'GET',
+#     'POST',
+#     'PUT',
+#     'PATCH',
+#     'DELETE',
+#     'OPTIONS',
+# ]
 
 # Application definition
 
@@ -37,10 +61,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'setup.apps.SetupConfig',
-    'crm.apps.CrmConfig',
     'corsheaders',
     'rest_framework',
+    'setup.apps.SetupConfig',
+    'crm.apps.CrmConfig',
 ]
 
 MIDDLEWARE = [
@@ -141,8 +165,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
